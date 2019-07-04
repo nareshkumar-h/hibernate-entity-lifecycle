@@ -49,12 +49,15 @@ session.close();
 session.remove(user);
 ```
 
+
+#### Entity Lifecycle Diagram
+
+![alt Entity Lifecycle](Entity-LifeCycle-State-tiny.png)
+
+
+
 #### Summary
 * Newly created POJO object will be in the transient state. Transient object doesn’t represent any row of the database i.e. not associated with any session object. It’s plain simple java object.
 * Persistent object represent one row of the database and always associated with some unique hibernate session. Changes to persistent objects are tracked by hibernate and are saved into database when commit call happen.
 * Detached objects are those who were once persistent in past, and now they are no longer persistent. To persist changes done in detached objects, you must reattach them to hibernate session.
 * Removed objects are persistent objects that have been passed to the session’s remove() method and soon will be deleted as soon as changes held in the session will be committed to database.
-
-#### Entity Lifecycle Diagram
-
-![alt Entity Lifecycle](Entity-LifeCycle-State-tiny.png)
